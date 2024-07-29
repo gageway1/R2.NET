@@ -9,7 +9,7 @@
 	<PropertyGroup>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageId>R2.NET</PackageId>
-		<Version>1.0.0</Version>
+		<Version>1.0.1</Version>
 		<Authors>Gage Way</Authors>
 		<Company>DMD</Company>
 		<Description>A .NET client for interacting with Cloudflare R2.</Description>

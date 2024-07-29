@@ -5,23 +5,15 @@ using Microsoft.Extensions.Logging;
 
 namespace R2.NET.Factories
 {
-    public class CloudflareR2ClientFactory : ICloudflareR2ClientFactory
+    public class CloudflareR2ClientFactory(
+        IOptions<CloudflareR2Options> options,
+        ILogger<CloudflareR2ClientFactory> logger,
+        ILogger<CloudflareR2Client> clientLogger) : ICloudflareR2ClientFactory
     {
-        private readonly ConcurrentDictionary<string, ICloudflareR2Client> _clientCache;
-        private readonly IOptions<CloudflareR2Options> _options;
-        private readonly ILogger<CloudflareR2ClientFactory> _logger;
-        private readonly ILogger<CloudflareR2Client> _clientLogger;
-
-        public CloudflareR2ClientFactory(
-            IOptions<CloudflareR2Options> options,
-            ILogger<CloudflareR2ClientFactory> logger,
-            ILogger<CloudflareR2Client> clientLogger)
-        {
-            _clientCache = new ConcurrentDictionary<string, ICloudflareR2Client>();
-            _options = options;
-            _logger = logger;
-            _clientLogger = clientLogger;
-        }
+        private readonly ConcurrentDictionary<string, ICloudflareR2Client> _clientCache = new ConcurrentDictionary<string, ICloudflareR2Client>();
+        private readonly IOptions<CloudflareR2Options> _options = options;
+        private readonly ILogger<CloudflareR2ClientFactory> _logger = logger;
+        private readonly ILogger<CloudflareR2Client> _clientLogger = clientLogger;
 
         public ICloudflareR2Client GetClient(string clientName, CancellationToken cancellationToken)
         {
