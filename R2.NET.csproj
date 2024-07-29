@@ -9,13 +9,20 @@
 	<PropertyGroup>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageId>R2.NET</PackageId>
-		<Version>1.0.1</Version>
+		<Version>1.0.2</Version>
 		<Authors>Gage Way</Authors>
 		<Company>DMD</Company>
 		<Description>A .NET client for interacting with Cloudflare R2.</Description>
 		<PackageTags>Cloudflare R2</PackageTags>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<RepositoryUrl>https://github.com/gageway1/R2.NET</RepositoryUrl>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="README.md" Pack="true" PackagePath="\"/>
+		<None Include="LICENSE" Pack="true" PackagePath="\"/>
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="AWSSDK.Core" Version="3.7.400" />
