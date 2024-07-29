@@ -4,8 +4,10 @@
     {
         public const string SettingsName = "CloudflareR2";
 
-        public string ApiBaseUri { get; set; } = "https://api.cloudflare.com/client/v4/accounts";
-        public string AccountId { get; set; } = string.Empty;
+        public string ApiBaseUri { get; set; } = string.Empty;
         public string ApiToken { get; set; } = string.Empty;
+        public string Secret { get; set; } = string.Empty;
+        public string AccessKeyId { get; set; } = string.Empty;
+        public double? PresignedUrlExpiryInMinutes { get; set; } = 15;
     }
 }
