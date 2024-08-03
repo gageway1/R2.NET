@@ -4,7 +4,7 @@ namespace R2.NET
 {
     public interface ICloudflareR2Client
     {
-        Task<string> UploadBlobAsync(FileStream blob, string blobName, CancellationToken cancellationToken);
+        Task<string> UploadBlobAsync(Stream blob, string blobName, CancellationToken cancellationToken);
         Task<Stream> GetBlobAsync(string blobName, CancellationToken cancellationToken);
         Task DeleteBlobAsync(string blobName, CancellationToken cancellationToken);
         Task<List<S3Bucket>> ListBucketsAsync(CancellationToken cancellationToken);

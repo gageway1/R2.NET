@@ -26,7 +26,7 @@ namespace R2.NET
             _s3Client = s3ClientFactory.GetClient(_bucketName, CancellationToken.None);
         }
 
-        public async Task<string> UploadBlobAsync(FileStream blob, string blobName, CancellationToken cancellationToken)
+        public async Task<string> UploadBlobAsync(Stream blob, string blobName, CancellationToken cancellationToken)
         {
             try
             {
@@ -44,7 +44,7 @@ namespace R2.NET
             }
         }
 
-        private static async Task UploadFileUsingPresignedUrl(string presignedUrl, FileStream stream)
+        private static async Task UploadFileUsingPresignedUrl(string presignedUrl, Stream stream)
         {
             using var httpClient = new HttpClient();
             using var content = new StreamContent(stream);
